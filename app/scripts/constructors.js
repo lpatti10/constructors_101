@@ -50,9 +50,13 @@ var Human = function (options) {
   this.cool = options.cool;
   this.pet = function(dog, mood) {
     dog.status = mood;
+    sadie.status = 'happy';
   }
 };
 
+// mason.pet (){
+
+// }
 // sadie.hungry = false;
 
 // mason.pet = (sadie,'happy');
