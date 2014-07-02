@@ -38,41 +38,46 @@ function expect(target) {
 // ANSWERS GO HERE
 var Dog = function (options) {
   var options = options || {};
-  this.name = options.name;
+  // fail-safe (above) 
   this.color = options.color;
-  this.hungry = options.hungry;
-  this.status = options.status || 'normal';
-
-  this.appetite = function (dog, value) {
-    dog.hungry = value;
-    moonshine.hungry = true;
-    sadie.hungry = false;
-    }
+  // terinary (a.k.a if statement) if this is true, then set as true
+  this.hungry = options.hungry === undefined ? true : options.hungry;
+  // (above terinary is equivalent to if/else below)
+  // if (options.hungry === undefined) {
+  //   options.hungry = true;
+  // } else {
+  //   hungry = options.hungry;
+  // }
+  this.status = 'normal';
+  //every dog will get this status by default (could also do: = options.status || 'normal')
 };
+
+
+
 
 
 
 var Human = function (options) {
   var options = options || {};
-  this.name = options.name;
-  this.cool = options.cool;
-  
-  this.coolfactor = function(human, value) {
-    human.cool = value;
-    mason.cool = false;
+  this.cool = options.cool || false;
+
+  this.pet = function(target) {
+    target.status = 'happy';
   }
 
-  this.pet = function(dog, mood) {
-    dog.status = mood;
-    sadie.status = 'happy';
+  this.feed = function(target) {
+    target.hungry = false;
   }
- 
-  this.feed = function(dog) {
-    dog.eats = 'not hungry';
-    moonshine.eats = 'not hungry';
-  }
-
 };
+
+
+
+//".pet" is a method or function you can run on any human object
+ 
+ 
+
+
+
 
 
 
