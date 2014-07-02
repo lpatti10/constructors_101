@@ -42,25 +42,39 @@ var Dog = function (options) {
   this.color = options.color;
   this.hungry = options.hungry;
   this.status = options.status || 'normal';
+
+  this.appetite = function (dog, value) {
+    dog.hungry = value;
+    moonshine.hungry = true;
+    sadie.hungry = false;
+    }
 };
+
 
 
 var Human = function (options) {
   var options = options || {};
   this.name = options.name;
   this.cool = options.cool;
+  
+  this.coolfactor = function(human, value) {
+    human.cool = value;
+    mason.cool = false;
+  }
+
   this.pet = function(dog, mood) {
     dog.status = mood;
+    sadie.status = 'happy';
   }
+ 
+  this.feed = function(dog) {
+    dog.eats = 'not hungry';
+    moonshine.eats = 'not hungry';
+  }
+
 };
 
-// sadie.hungry = false;
 
-// mason.pet = (sadie,'happy');
-
-// sadie.status = 'happy';
-// function (sadie, 'happy')
-// mason.pet = 'happy';
 
 // END ANSWERS
 

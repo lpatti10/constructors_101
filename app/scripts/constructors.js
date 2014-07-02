@@ -46,8 +46,7 @@ var Dog = function (options) {
     dog.hungry = value;
     moonshine.hungry = true;
     sadie.hungry = false;
-  }
-
+    }
 };
 
 
@@ -57,8 +56,8 @@ var Human = function (options) {
   this.name = options.name;
   this.cool = options.cool;
   
-  this.coolfactor = function() {
-    // julia.cool = true;
+  this.coolfactor = function(human, value) {
+    human.cool = value;
     mason.cool = false;
   }
 
@@ -68,11 +67,9 @@ var Human = function (options) {
   }
  
   this.feed = function(dog) {
-    // dog.eats = 'not hungry';
-    moonshine.eats = true;
-
+    dog.eats = 'not hungry';
+    moonshine.eats = 'not hungry';
   }
-
 
 };
 
